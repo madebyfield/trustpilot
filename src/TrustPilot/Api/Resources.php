@@ -67,13 +67,14 @@ class Resources extends AbstractApi{
      * @param string|array
      * @return \stdClass
      */
-    public function getStarsString($stars, $data)
+    public function getStarsString($stars, $locale='en-US', $data)
     {
         return json_decode(
             $this->api->get('resources/strings/stars/'. $stars,
                             ['query' =>
                                 [
-                                    'apikey' => $data['apikey']
+                                    'apikey' => $data['apikey'],
+                                    'locale' => $locale,
                                 ]
                             ]
             ));
